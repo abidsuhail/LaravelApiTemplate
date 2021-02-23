@@ -73,8 +73,12 @@ class RegisterController extends Controller
     }
     protected function registered(Request $request, $user)
     {
-    $user->generateToken();
+        $user->generateToken();
 
-    return response()->json(['data' => $user->toArray()], 201);
+        return response()->json([
+            'error'=>0,
+            'message'=>'success',
+            'data' => [$user->toArray()]
+        ], 201);
     }
 }
